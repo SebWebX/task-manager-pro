@@ -1,0 +1,42 @@
+// ─── THEMES ───────────────────────────────────────────────────
+// Expone los tokens como CSS Custom Properties.
+// Angular alterna entre body.dark y body.light
+// para cambiar el tema en tiempo real
+
+@use 'tokens' as t;
+
+body.dark{
+    // Fondos
+
+    --bg-base: #{t.$dark-bg-base};
+    --bg-surface: #{t.$dark-bg-surface};
+    --bg-card: #{t.$dark-bg-card};
+
+    // Acento
+
+    --accent: #{t.$dark-accent};
+    --accent-dark: #{t.$dark-accent-dark};
+   
+    // Texto
+
+    --text-primary: #{t.$dark-text-primary};
+    --text-secondary: #{t.$dark-text-secondary};
+    --text-muted: #{t.$dark-text-muted};
+
+    // Bordes
+    
+    --border: #{t.$dark-border};
+
+    // Prioridades
+    
+    --priority-high: #{t.$priority-high};
+    --priority-medium: #{t.$priority-medium};
+    --priority-low: #{t.$priority-low};
+
+    // Columnas
+
+    --col-todo: #{t.$col-todo};
+    --col-progress: #{t.$col-progress};
+    --col-review: #{t.$col-review};
+    --col-done: #{t.$col-done};
+}

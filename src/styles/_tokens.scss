@@ -1,0 +1,38 @@
+// ─── DESIGN TOKENS ────────────────────────────────────────────
+// Valores base del sistema de diseño.
+// Estos valores son internos (SCSS) y se exponen como
+// CSS Custom Properties en _themes.scss
+
+// Fondos
+
+$dark-bg-base: #0d1117;
+$dark-bg-surface: #111a1f;
+$dark-bg-card: #0d1117;
+
+// Acento
+
+$dark-accent: #1fad83;
+$dark-accent-dark: #0e7a5e;
+
+// Texto
+
+$dark-text-primary: #d4ede7;
+$dark-text-secondary: #5a8a7a;
+$dark-text-muted: #2e5a4e;
+
+// Bordes
+
+$dark-border: rgba(56, 180, 139, 0.12);
+
+// Estados de prioridad
+
+$priority-high: #e04f4f;
+$priority-medium: #e8a030;
+$priority-low: #5a8a7a;
+
+// Colores de columnas
+
+$col-todo: #e8a030;
+$col-progress: #6b7af7;
+$col-review: #e04f7a;
+$col-done: #1fad83;

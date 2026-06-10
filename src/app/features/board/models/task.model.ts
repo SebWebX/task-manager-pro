@@ -28,3 +28,11 @@ export interface Subtask{
     text: string;
     completed: boolean;
 }
+
+export interface Column{
+    id: string;
+    title: string;
+    color: string;
+    status: TaskStatus;
+    tasks: Task[];
+}

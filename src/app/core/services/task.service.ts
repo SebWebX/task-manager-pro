@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Column, TaskStatus } from '../../features/board/models/task.model';
+import { Column, TaskStatus, Task } from '../../features/board/models/task.model';
 
 @Injectable({
   providedIn: 'root'
@@ -36,7 +36,39 @@ export class TaskService {
     tasks: []
   }
 ];
-  
-
+ 
  constructor() { }
+  
+ getColumns(): Column[]{
+  return [...this.columns];
+  }
+
+
+  addTask(task: Task, columnId: string): void{
+    const column = this.columns.find(col => col.id === columnId)
+    if (column){
+     column.tasks.push(task);
+    }
+  }
+
+  deleteTask(taskId: string, columnId: string): void{
+    const column = this.columns.find(col => col.id === columnId);
+  
+    if(column){
+      column.tasks = column.tasks.filter(task => task.id !== taskId);
+    }
+  }
+
+  moveTask(taskId: string, columnId: string, newStatus: TaskStatus): void{
+    const column = this.columns.find(col => col.id === columnId);
+
+    if(column){
+      const task = column.tasks.find(t => t.id === taskId);
+    }
+
+    if(task){
+      taskId.status = newStatus
+    }
+  }
 }
+

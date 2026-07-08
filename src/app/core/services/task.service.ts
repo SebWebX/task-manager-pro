@@ -64,10 +64,22 @@ export class TaskService {
 
     if(column){
       const task = column.tasks.find(t => t.id === taskId);
-    }
 
-    if(task){
-      taskId.status = newStatus
+      if(task){
+        task.status = newStatus;
+      }
+    }
+  }
+
+  updateTask(updatedTask: Task, columnId: string): void{
+    const column = this.columns.find(col => col.id === columnId);
+
+    if(column){
+      const taskIndex = column.tasks.findIndex(t => t.id === updatedTask.id);
+
+      if (taskIndex !== -1){
+        column.tasks[taskIndex] = updatedTask;
+      }
     }
   }
 }

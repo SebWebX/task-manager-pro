@@ -1,6 +1,7 @@
 @use './styles/tokens';
 @use './styles/themes';
 @use './styles/mixins';
+@import '@tabler/icons-webfont/dist/tabler-icons.min.css';
 
 body{
     background: var(--bg-base);

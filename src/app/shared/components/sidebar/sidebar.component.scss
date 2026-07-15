@@ -1,0 +1,124 @@
+@use '../../../../styles/mixins' as m;
+
+
+.sidebar{
+    @include m.floating-panel;
+    width: 11.626rem;
+    height: 100vh;
+    display: flex;
+    flex-direction: column; 
+
+    &__header{
+        padding: .4rem;
+        border-bottom: 0.5px solid var(--border);
+    }
+
+    &__logo{
+        @include m.flex-center;
+        gap: .5rem;
+    }
+
+    &__logo-icon{
+        @include m.flex-center;
+        justify-content: center;
+        height: 1.75rem;
+        width: 1.75rem;
+        background: linear-gradient(135deg, #1fad83, #0e7a5e);
+        border-radius: 7px;
+    }
+
+    &__logo-name{
+        font-size: .781rem;
+        color: var(--text-primary);
+        font-weight: 500;
+    }
+
+    &__nav{
+        @include m.scrollbar-hidden;
+        padding: 1rem;
+        display: flex;
+        flex-direction:  column;
+        flex: 1;
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    &__nav-label{
+        font-size: .563rem;
+        color: var(--text-muted);
+        letter-spacing: .09em;
+        text-transform: uppercase;
+    }
+
+    &__nav-item{
+        @include m.flex-center;
+        gap: .5rem;
+        padding: .2rem;
+        cursor: pointer;
+        color: var(--text-secondary);
+        border-radius: 7px;
+
+        &--active{
+            background: rgba(31, 173, 131, 0.15);
+            color: var(--text-primary);
+        }
+
+        &:hover{
+            background: rgba(31, 173, 131, 0.08);
+        }
+    }
+
+    &__nav-dot{
+        width: .438rem;
+        height: .438rem;
+        border-radius: 50%;
+    }
+
+    &__nav-badge{
+        background: rgba(31, 173, 131, 0.08);
+        color:#0e7a5e;
+        padding-inline: .7rem;
+        border-radius: 20px;
+        font-size: .594rem;
+        margin-left: auto;
+    }
+
+    &__footer{
+        @include m.flex-center;
+        padding: .6rem;
+        border-top: 0.5px solid var(--border); 
+        gap: .6rem;
+    }
+
+    &__footer-avatar{
+        @include m.flex-center;
+        height: 1.625rem;
+        width: 1.625rem;
+        border-radius: 50%;
+        background: linear-gradient(135deg, #1fad83, #0e7a5e);
+        text-align: center;
+        font-size: .594rem;
+        font-weight: 500;
+        color: white;
+        justify-content: center;
+    }
+
+    &__footer-info{
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+
+    &__footer-name{
+        font-size: .719rem;
+        color: var(--text-primary);
+    }
+
+    &__footer-role{
+        font-size: .594rem;
+        color: var(--text-muted);
+    }
+}

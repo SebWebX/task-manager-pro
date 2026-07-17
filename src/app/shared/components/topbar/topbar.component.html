@@ -1,1 +1,27 @@
-<p>topbar works!</p>
+<header aria-label="Barra superior" class="topbar">
+    <i class="ti ti-chevron-left topbar__back" aria-hidden="true"></i>
+    <div class="topbar__workspace">
+        <span class="topbar__title">My workspace</span>
+        <span class="topbar__subtitle">Tablero principal</span>
+    </div>
+    <div class="topbar__search">
+        <i class="ti ti-search topbar__search-icon" aria-hidden="true"></i>
+        <input class="topbar__search-input" type="search" placeholder="Buscar contenido" aria-label="Buscar tareas">
+    </div>
+    <div class="topbar__notification">
+        <i class="ti ti-bell topbar__bell-icon" aria-hidden="true"></i>
+        <span class="topbar__notification-dot"></span>
+    </div>
+    <div class="topbar__profile">
+        <i class="ti ti-user-circle topbar__profile-icon" aria-hidden="true"></i>
+    </div>
+    <div class="topbar__theme">
+            <span class="sr-only">Cambiar de tema</span>
+            <button class="topbar__button topbar__button--active" aria-label="Activar tema claro">
+                <i class="ti ti-sun" aria-hidden="true"></i>
+            </button>
+            <button class="topbar__button" aria-label="Activar tema oscuro">
+                <i class="ti ti-moon" aria-hidden="true"></i>
+            </button>
+    </div>
+</header>

@@ -4,7 +4,7 @@
 .sidebar{
     @include m.floating-panel;
     width: 11.626rem;
-    height: 100vh;
+    height: calc(100vh - 1.8rem);
     display: flex;
     flex-direction: column; 
 
@@ -47,8 +47,10 @@
     }
 
     &__nav-label{
-        font-size: .563rem;
-        color: var(--text-muted);
+        padding-top: .3rem;
+        padding-bottom: .4rem;
+        font-size: .7rem;
+        color: var(--text-secondary);
         letter-spacing: .09em;
         text-transform: uppercase;
     }
@@ -60,6 +62,7 @@
         cursor: pointer;
         color: var(--text-secondary);
         border-radius: 7px;
+        font-size: .95rem;
 
         &--active{
             background: rgba(31, 173, 131, 0.15);

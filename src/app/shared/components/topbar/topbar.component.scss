@@ -7,8 +7,19 @@
     gap: 1rem;
 
     &__workspace{
-        display: flex;
-        flex-direction: column;
+        @include m.flex-center;
+        gap: .4rem;
+    }
+
+    &__title{
+        font-weight: 500;
+        color: var(--text-primary);
+        font-size: .8rem;
+    }
+
+    &__subtitle{
+        font-size: .75rem;
+        color: var(--text-muted);
     }
 
     &__search{

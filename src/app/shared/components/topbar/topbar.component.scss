@@ -1,0 +1,77 @@
+@use '../../../../styles/mixins' as m;
+
+.topbar{
+    @include m.floating-panel;
+    @include m.flex-center;
+    padding: .7rem;
+    gap: 1rem;
+
+    &__workspace{
+        display: flex;
+        flex-direction: column;
+    }
+
+    &__search{
+        @include m.flex-center;
+        gap: .4rem;
+        background: var(--bb-base);
+        border: 0.5px solid var(--border);
+        border-radius: 7px;
+        padding: .3rem .6rem;
+        margin-left: auto;
+    }
+
+    &__search-input{
+        background: transparent;
+        border: none;
+        outline: none;
+        color: var(--text-primary);
+        font-size: .75rem;
+    }
+
+    &__notification,
+    &__profile{
+        @include m.flex-center;
+        justify-content: center;
+        width: 1.625rem;
+        height: 1.625rem;
+        border-radius: 7px;
+        background: rgba(31, 173, 131, 0.08);
+        border: 0.5px solid var(--border);
+        cursor: pointer;
+        position: relative;
+
+        &-dot{
+            position: absolute;
+            top: 4px;
+            right: 4px;
+            width: 5px;
+            height: 5px;
+            border-radius: 50%;
+            background: var(--accent);
+            border: 1.5px solid var(--bg-surface);
+        }
+    }
+
+    &__theme{
+        @include m.flex-center;
+        background: var(--bg-base);
+        border: 0.5px solid var(--border);
+        border-radius: 7px;
+        overflow: hidden;
+    }
+
+    &__button{
+        padding: .3rem .5rem;
+        background: transparent;
+        border: none;
+        cursor: pointer;
+        color: var(--text-muted);
+
+        &--active{
+            background: rgba(31, 173, 131, 0.2);
+            color: var(--accent);
+        }
+    }
+
+}

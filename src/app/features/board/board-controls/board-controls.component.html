@@ -1,1 +1,16 @@
-<p>board-controls works!</p>
+<div class="board-controls" role="toolbar" aria-label="Controles del tablero">
+    <div class="board-controls__tabs">
+        <button class="board-controls__tab board-controls__tab--active" aria-pressed="true">Kanban</button>
+        <button class="board-controls__tab" aria-pressed="false">Tabla</button>
+        <button class="board-controls__tab" aria-pressed="false">Calendario</button>
+    </div>
+    <div class="board-controls__spacer"></div>
+    <div class="board-controls__buttons">
+        <button class="board-controls__button" aria-label="Filtrar tareas"><i class="ti ti-filter" aria-hidden="true"></i>
+            Filtrar</button>
+        <button class="board-controls__button" aria-label="Ordenar tareas"><i class="ti ti-arrows-sort" aria-hidden="true"></i>
+            Ordenar</button>
+        <button class="board-controls__button board-controls__button--primary" aria-label="Crear nueva tarea"><i class="ti ti-plus" aria-hidden="true"></i>
+            Nueva tarea</button>
+    </div>
+</div>

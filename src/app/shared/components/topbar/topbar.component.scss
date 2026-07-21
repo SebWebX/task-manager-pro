@@ -3,7 +3,7 @@
 .topbar{
     @include m.floating-panel;
     @include m.flex-center;
-    padding: .7rem;
+    padding: .5rem;
     gap: 1rem;
 
     &__workspace{

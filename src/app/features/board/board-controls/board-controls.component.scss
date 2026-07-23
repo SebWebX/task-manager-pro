@@ -1,0 +1,57 @@
+@use '../../../../styles/mixins' as m;
+
+
+.board-controls{
+    @include m.floating-panel; 
+    @include m.flex-center;
+    padding: .4rem;
+    gap: 1rem;
+
+    &__spacer{
+        flex: 1;
+    }
+
+    &__tabs{
+        display: flex;
+        flex-direction: row;
+        gap: 1rem;
+    }
+
+    &__tab{
+        background: none;
+        border: none;
+        color: var(--text-secondary);
+        cursor: pointer;
+        font-size: .781rem;
+        padding: .4rem;
+        border-radius: 6px;
+
+        &--active{
+            background: rgba(31, 173, 131, 0.15);
+            color: var(--text-primary);
+        }
+    }
+
+    &__buttons{
+        display: flex;
+        gap: 1rem;
+    }
+
+    &__button{
+        display: flex;
+        background: none;
+        border:none;
+        font-size: .781rem;
+        color: var(--text-secondary);
+        cursor: pointer;
+        align-items: center;
+        gap: .3rem;
+
+        &--primary{
+            background: linear-gradient(135deg, #1fad83, #0e7a5e);
+            color: white;
+            padding: .3rem.7rem;
+            border-radius: 7px;
+        }
+    }
+}

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Column } from '../models/task.model';
 
 @Component({
   selector: 'app-board-column',
@@ -7,5 +8,6 @@ import { Component } from '@angular/core';
   styleUrl: './board-column.component.scss'
 })
 export class BoardColumnComponent {
+  @Input() column!: Column;
 
 }

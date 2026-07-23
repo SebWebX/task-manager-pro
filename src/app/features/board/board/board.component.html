@@ -1,1 +1,5 @@
-<p>board works!</p>
+<div class="board">
+    @for (column of columns; track column.id){
+        <app-board-column [column]="column"/>
+    }
+</div>

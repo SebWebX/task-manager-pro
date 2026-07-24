@@ -1,0 +1,65 @@
+@use '../../../../styles/mixins' as m;
+
+.board-column{
+    @include m.floating-panel;
+    display: flex;
+    flex-direction: column;
+    max-height: calc(100vh - 8rem);
+    min-height: 13rem;
+    min-width: 16rem;
+
+    &__header{
+        @include m.flex-center;
+        padding: 1rem;
+        gap: .5rem;
+    }
+
+    &__dot{
+        width: .4375rem;
+        height: .4375rem;
+        border-radius: 50%;
+        flex-shrink: 0;
+    }
+
+    &__title{
+        color: var(--text-primary);
+        font-size: .75rem;
+        font-weight: 500;
+        flex: 1;
+    }
+
+    &__count{
+        font-size: .75rem;
+        padding: .1rem .4rem;
+        border-radius: 20px;
+        background-color: rgba(31, 173, 131, 0.1);
+        color: var(--text-muted);
+    }
+
+    &__menu{
+        color: var(--text-muted);
+        cursor: pointer;
+    }
+
+    &__cards{
+        @include m.scrollbar-hidden;
+        display: flex;
+        flex: 1;
+        padding: .5rem;
+        overflow-y: auto;
+    }
+
+    &__footer{
+        padding: .5rem;
+    }
+
+    &__add-btn{
+        @include m.flex-center;
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        font-size: .75rem;
+        gap: .3rem;
+    }
+}

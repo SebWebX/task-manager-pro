@@ -1,0 +1,9 @@
+@use '../../../../styles/mixins' as m;
+
+.board{
+    @include m.scrollbar-hidden;
+    display: flex;
+    overflow-x: auto;
+    flex-wrap: nowrap;
+    gap: .6rem;
+}

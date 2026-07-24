@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { Column } from '../models/task.model';
 import { TaskCardComponent } from '../task-card/task-card.component';
 
@@ -6,7 +6,8 @@ import { TaskCardComponent } from '../task-card/task-card.component';
   selector: 'app-board-column',
   imports: [TaskCardComponent],
   templateUrl: './board-column.component.html',
-  styleUrl: './board-column.component.scss'
+  styleUrl: './board-column.component.scss',
+  encapsulation: ViewEncapsulation.None
 })
 export class BoardColumnComponent {
   @Input() column!: Column;

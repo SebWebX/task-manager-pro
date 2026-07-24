@@ -9,7 +9,7 @@
     <div class="board-column__cards">
         <ul class="board-column__list">
             @for (task of column.tasks; track task.id){
-                <app-task-card/>
+                <app-task-card [task]="task"/>
             } @empty {
                 <li class="board-column__empty">No hay tareas</li>
             }

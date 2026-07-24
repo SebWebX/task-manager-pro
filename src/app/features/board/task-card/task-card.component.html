@@ -1,1 +1,53 @@
-<p>task-card works!</p>
+<div class="task-card" role="article" [attr.aria-label]="task.title">
+    <div class="task-card__priority">
+        <span class="task-card__priority-dot" [style.background]="task.priority === 'alta' ? '#e04f4f' : task.priority === 'media' ? '#e8a030' : '#5a8a7a'"></span>
+        <span class="task-card__priority-label">{{task.priority}}</span>
+    </div>
+    <span class="task-card__title">{{task.title}}</span>
+    @if(task.description){
+        <span class="task-card__description">{{task.description}}</span>
+    }
+
+    <div class="task-card__labels">
+        @if(task.labels){
+            @for (label of task.labels; track label){
+                <span class="task-card__label">{{ label }}</span>
+            }
+        }
+    </div>
+
+    <div class="task-card__subtasks">
+        <ul class="task-card__subtask">
+            @if(task.subtask){
+                @for (subtask of task.subtask; track subtask.text){
+                    <li class="task-card__subtask-item" [class.task-card__subtask-item--completed]="subtask.completed">
+                        @if (subtask.completed) {
+                          <i class="ti ti-circle-check" aria-hidden="true"></i>
+                        } @else {
+                          <i class="ti ti-circle" aria-hidden="true"></i>
+                        }
+                        {{ subtask.text }}
+                      </li>
+                }
+            }
+        </ul>
+    </div>
+
+    <div class="task-card__footer">
+        <span class="task-card__date">
+            <i class="ti ti-calendar-event" aria-hidden="true"></i>
+            {{ task.date }}
+          </span>
+          @if(task.comments){
+            <span class="task-card__comments">
+                <i class="ti ti-message-circle" aria-hidden="true"></i>
+                {{ task.comments }}
+              </span>
+          }
+        @if(task.assigned){
+            @for (assigned of task.assigned; track assigned){
+                <span class="task-card__avatar">{{ assigned }}</span>
+            }
+        }
+    </div>
+</div>

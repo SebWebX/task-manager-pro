@@ -1,1 +1,24 @@
+<div class="board-column" role="region" [attr.aria-label]="column.title">
+    <div class="board-column__header">
+        <span [style.background]="column.color" aria-hidden="true" class="board-column__dot"></span>
+        <span class="board-column__title">{{ column.title }}</span>
+        <span class="board-column__count">{{ column.tasks.length }}</span>
+        <i class="ti ti-dots  board-column__menu" aria-hidden="true"></i>
+    </div>
+
+    <div class="board-column__cards">
+        <ul class="board-column__list">
+            @for (task of column.tasks; track task.id){
+                <app-task-card/>
+            } @empty {
+                <li class="board-column__empty">No hay tareas</li>
+            }
+        </ul>
+    </div>
+    
+    <div class="board-column__footer">
+        <button class="board-column__add-btn" aria-label="Agregar nueva tarea"><i class="ti ti-plus" aria-hidden="true"></i>Agregar tarea</button>
+    </div>
+    
+</div>
 

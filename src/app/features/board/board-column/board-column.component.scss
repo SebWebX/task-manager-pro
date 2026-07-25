@@ -6,11 +6,11 @@
     flex-direction: column;
     max-height: calc(100vh - 8rem);
     min-height: 13rem;
-    min-width: 16rem;
+    width: 16rem;
 
     &__header{
         @include m.flex-center;
-        padding: 1rem;
+        padding: .5rem .3rem;
         gap: .5rem;
     }
 
@@ -29,8 +29,8 @@
     }
 
     &__count{
-        font-size: .75rem;
-        padding: .1rem .4rem;
+        font-size: .6rem;
+        padding: .1rem .3rem;
         border-radius: 20px;
         background-color: rgba(31, 173, 131, 0.1);
         color: var(--text-muted);
@@ -44,9 +44,30 @@
     &__cards{
         @include m.scrollbar-hidden;
         display: flex;
+        flex-direction: column;
         flex: 1;
-        padding: .5rem;
+        padding: 0 .3rem .3rem;
         overflow-y: auto;
+        gap: .5rem;
+
+        ul {
+            margin: 0;
+            padding: 0;
+            list-style: none;
+        }
+
+        app-task-card {
+            display: block;
+            width: 100%;
+        }
+    }
+
+    &__empty{
+        color: var(--text-muted);
+        font-size: .7rem;
+        text-align: center;
+        padding: 2rem 0;
+        
     }
 
     &__footer{

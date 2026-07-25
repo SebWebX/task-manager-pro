@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Column, TaskStatus, Task } from '../../features/board/models/task.model';
+import { Column, TaskStatus, Task, Priority } from '../../features/board/models/task.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,7 +12,24 @@ export class TaskService {
     title: 'Por hacer',
     color: '#e8a030',
     status: TaskStatus.Todo,
-    tasks: []
+    tasks: [
+      {
+        id: 'task-01',
+        title: 'Diseñar flujo de usuario',
+        description: 'Crear diagrama de navegación para la app.',
+        priority: Priority.Alta,
+        status: TaskStatus.Todo,
+        labels: ['UX', 'Diseño'],
+        date: new Date('2024-04-21'),
+        comments: 4,
+        subtask: [
+          { text: 'Instalar Angular CLI', completed: true },
+          { text: 'Crear estructura base', completed: false }
+        ],
+        assigned: ['SE', 'DR'],
+      }
+    ]
+    
   },
   {
     id: '02',

@@ -1,0 +1,125 @@
+@use '../../../../styles/mixins' as m;
+
+.task-card{
+    display: flex;
+    flex-direction: column;
+    background: var(--bg-card);
+    cursor: pointer;
+    border-radius: .563rem;
+    border: .5px solid var(--border);
+    padding: .625rem .688rem;
+    gap: .4rem;
+
+    &__priority{
+        @include m.flex-center;
+        gap: .5rem;
+
+        &-dot{
+            width: .313rem;
+            height: .313rem;
+            border-radius: 50%;
+        }
+
+        &-label{
+            font-size: .75rem;
+            font-weight: 500;
+        }
+    }
+
+    &__title{
+        color: var(--text-primary);
+        font-weight: 600;
+        font-size: .75rem;
+    }
+
+    &__description{
+        font-size: .7rem;
+        color: var(--text-secondary);
+    }
+
+    &__labels{
+        display: flex;
+        flex-wrap: wrap;
+        gap: .3rem;
+    }
+
+    &__label{
+        font-size: .6rem;
+        font-weight: 500;
+        padding: .2rem .5rem;
+        border-radius: 20px;
+        background: rgba(31, 173, 131, 0.15);
+        color: var(--accent);
+    }
+
+    &__subtasks{
+        ul{
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+    }
+
+    &__subtask-item{
+        @include m.flex-center;
+        gap: .3rem;
+        font-size: .65rem;
+        color: var(--text-secondary);
+
+        &--completed{
+            text-decoration: line-through;
+            color: var(--text-muted);
+        }
+    }
+
+    &__footer{
+        @include m.flex-center;
+        justify-content: space-between;
+        margin-top: auto;
+    }
+
+    &__date{
+        @include m.flex-center;
+        gap: .3rem;
+        font-size: .6rem;
+        color: var(--text-muted);
+    }
+
+    &__right{
+        @include m.flex-center;
+        gap: .3rem;
+    }
+
+    &__comments{
+        @include m.flex-center;
+        gap: .3rem;
+        font-size: .6rem;
+        color: var(--text-muted);
+    }
+
+    &__avatar{
+        @include m.flex-center;
+        justify-content: center;
+        width: 1rem;
+        height: 1rem;
+        border-radius: 50%;
+        font-size: .6rem;
+        font-weight: 500;
+        color: white;
+        background: var(--accent);
+        margin-left: -.5rem;
+        border: 1.5px solid var(--bg-card);
+
+        &:first-child{
+            margin-left: 0;
+        }
+
+        &:nth-child(2){
+            background: #e04f7a;
+        }
+
+        &:nth-child(3){
+            background: #6b7af7;
+        }
+    }
+}

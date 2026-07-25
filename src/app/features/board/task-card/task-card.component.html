@@ -1,7 +1,9 @@
 <div class="task-card" role="article" [attr.aria-label]="task.title">
     <div class="task-card__priority">
         <span class="task-card__priority-dot" [style.background]="task.priority === 'alta' ? '#e04f4f' : task.priority === 'media' ? '#e8a030' : '#5a8a7a'"></span>
-        <span class="task-card__priority-label">{{task.priority}}</span>
+        <span class="task-card__priority-label" [style.color]="task.priority === 'alta' ? '#e04f4f' : task.priority === 'media' ? '#e8a030' : '#5a8a7a'">
+            {{ task.priority | titlecase }}
+        </span>
     </div>
     <span class="task-card__title">{{task.title}}</span>
     @if(task.description){
@@ -11,7 +13,11 @@
     <div class="task-card__labels">
         @if(task.labels){
             @for (label of task.labels; track label){
-                <span class="task-card__label">{{ label }}</span>
+                <span class="task-card__label"
+                    [style.background]="getLabelColor(label)"
+                    [style.color]="getLabelTextColor(label)">
+                    {{ label }}
+                </span>
             }
         }
     </div>
@@ -27,7 +33,7 @@
                           <i class="ti ti-circle" aria-hidden="true"></i>
                         }
                         {{ subtask.text }}
-                      </li>
+                    </li>
                 }
             }
         </ul>
@@ -36,18 +42,20 @@
     <div class="task-card__footer">
         <span class="task-card__date">
             <i class="ti ti-calendar-event" aria-hidden="true"></i>
-            {{ task.date }}
-          </span>
-          @if(task.comments){
-            <span class="task-card__comments">
-                <i class="ti ti-message-circle" aria-hidden="true"></i>
-                {{ task.comments }}
-              </span>
-          }
-        @if(task.assigned){
-            @for (assigned of task.assigned; track assigned){
-                <span class="task-card__avatar">{{ assigned }}</span>
+            {{ task.date | date:'MMM dd' }}
+        </span>
+        <div class="task-card__right">
+            @if(task.assigned){
+                @for (assigned of task.assigned; track assigned){
+                    <span class="task-card__avatar">{{ assigned }}</span>
+                }
             }
-        }
+            @if(task.comments){
+                <span class="task-card__comments">
+                    <i class="ti ti-message-circle" aria-hidden="true"></i>
+                    {{ task.comments }}
+                </span>
+            }
+        </div>
     </div>
 </div>

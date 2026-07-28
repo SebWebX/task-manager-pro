@@ -1,1 +1,43 @@
-<p>task-modal works!</p>
+@if (isOpen) {
+    <div class="task-modal">
+      <div class="task-modal__backdrop"></div>
+      <div class="task-modal__panel"></div>
+      <div class="task-modal__backdrop" (click)="closeModal()"></div>
+      
+      
+      <div class="task-modal__panel">
+        <div class="task-modal__header">
+            <h2 class="task-modal__title">Nueva tarea</h2>
+            <button class="task-modal__close" aria-label="Cerrar modal">
+              <i class="ti ti-x" aria-hidden="true"></i>
+            </button>
+          </div>
+          <form class="task-modal__form">
+            <div class="task-modal__field">
+              <label for="task-title">Título</label>
+              <input id="task-title" type="text" placeholder="Nombre de la tarea">
+            </div>
+            <div class="task-modal__field">
+                <label for="task-description">Descripción</label>
+                <textarea id="task-description" placeholder="Descripción de la tarea"></textarea>
+              </div>
+              <div class="task-modal__field">
+                <label for="task-priority">Prioridad</label>
+                <select id="task-priority">
+                  <option value="alta">Alta</option>
+                  <option value="media">Media</option>
+                  <option value="baja">Baja</option>
+                </select>
+              </div>
+              <div class="task-modal__field">
+                <label for="task-date">Fecha</label>
+                <input id="task-date" type="date">
+              </div>
+          </form>
+          <div class="task-modal__footer">
+            <button class="task-modal__cancel">Cancelar</button>
+            <button class="task-modal__submit">Crear tarea</button>
+          </div>
+      </div>
+    </div>
+  }

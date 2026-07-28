@@ -1,4 +1,5 @@
 import { Component, ViewEncapsulation } from '@angular/core';
+import { ModalService } from '../../../core/services/modal.service';
 
 @Component({
   selector: 'app-board-controls',
@@ -8,5 +9,11 @@ import { Component, ViewEncapsulation } from '@angular/core';
   encapsulation: ViewEncapsulation.None
 })
 export class BoardControlsComponent {
+
+  constructor(private modalService: ModalService){}
+
+  openModal(): void{
+    this.modalService.openModal();
+  }
 
 }

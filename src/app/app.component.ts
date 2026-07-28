@@ -4,11 +4,11 @@ import { SidebarComponent } from './shared/components/sidebar/sidebar.component'
 import { TopbarComponent } from './shared/components/topbar/topbar.component';
 import { BoardControlsComponent } from './features/board/board-controls/board-controls.component';
 import { BoardComponent } from './features/board/board/board.component';
-
+import { TaskModalComponent } from './shared/components/task-modal/task-modal.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, SidebarComponent, TopbarComponent, BoardControlsComponent, BoardComponent],
+  imports: [RouterOutlet, SidebarComponent, TopbarComponent, BoardControlsComponent, BoardComponent, TaskModalComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
@@ -21,5 +21,4 @@ export class AppComponent implements OnInit {
     this.renderer.addClass(document.body, 'dark');
   }
 }
-
 

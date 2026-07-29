@@ -1,0 +1,114 @@
+@use '../../../../styles/mixins' as m;
+
+.task-modal{
+    @include m.flex-center;
+    justify-content: center;
+    position: fixed;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    &__backdrop{
+        position: absolute;
+        z-index: 500;
+        background-color: rgba(0, 0, 0, 0.5);
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+
+    &__panel{
+        position: relative;
+        z-index: 700;
+        border-radius: 14px;
+        padding: .5rem 1rem;
+        width: 32rem;
+        background: var(--bg-surface);
+        box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    }
+
+    &__header {
+        @include m.flex-center;
+        justify-content: space-between;
+        margin-bottom: 1rem;
+      }
+    
+      &__title {
+        font-size: 1rem;
+        font-weight: 600;
+        color: var(--text-primary);
+      }
+
+      &__close {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        font-size: 1rem;
+      }
+
+      &__form {
+        display: flex;
+        flex-direction: column;
+        gap: .8rem;
+      }
+
+      &__field {
+        display: flex;
+        flex-direction: column;
+        gap: .3rem;
+      
+        label {
+          font-size: .75rem;
+          color: var(--text-secondary);
+          font-weight: 500;
+        }
+      
+        input, textarea, select {
+          background: var(--bg-base);
+          border: 0.5px solid var(--border);
+          border-radius: 7px;
+          padding: .5rem .7rem;
+          color: var(--text-primary);
+          font-size: .75rem;
+          outline: none;
+        }
+      
+        textarea {
+          resize: vertical;
+          min-height: 5rem;
+          max-height: 10rem
+        }
+      }
+
+      &__footer {
+        @include m.flex-center;
+        justify-content: flex-end;
+        gap: .6rem;
+        margin-top: 1rem;
+      }
+      
+      &__cancel {
+        background: none;
+        border: 0.5px solid var(--border);
+        border-radius: 7px;
+        padding: .4rem .8rem;
+        color: var(--text-secondary);
+        cursor: pointer;
+        font-size: .75rem;
+      }
+      
+      &__submit {
+        background: linear-gradient(135deg, #1fad83, #0e7a5e);
+        border: none;
+        border-radius: 7px;
+        padding: .4rem .8rem;
+        color: white;
+        cursor: pointer;
+        font-size: .75rem;
+        font-weight: 500;
+      }
+}

@@ -2,6 +2,7 @@ import { Component, Input, ViewEncapsulation } from '@angular/core';
 import { Column } from '../models/task.model';
 import { TaskCardComponent } from '../task-card/task-card.component';
 import { TaskService } from '../../../core/services/task.service';
+import { ModalService } from '../../../core/services/modal.service';
 
 @Component({
   selector: 'app-board-column',
@@ -13,7 +14,11 @@ import { TaskService } from '../../../core/services/task.service';
 export class BoardColumnComponent {
   @Input() column!: Column;
 
-  constructor(private taskService: TaskService) {}
+  constructor(private taskService: TaskService, private modalService: ModalService) {}
+
+  openModal(): void{
+    this.modalService.openModal(this.column.id);
+  }
 
   onMoveLeft(taskId: string): void {
     const columns = this.taskService.getColumns();

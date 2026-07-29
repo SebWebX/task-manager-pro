@@ -14,6 +14,7 @@ import { Task, Priority, TaskStatus } from '../../../features/board/models/task.
 })
 export class TaskModalComponent implements OnInit, OnDestroy {
   isOpen: boolean = false;
+  selectedColumnId: string = '01';
   private subscription!: Subscription;
 
   taskForm = new FormGroup({
@@ -35,6 +36,10 @@ export class TaskModalComponent implements OnInit, OnDestroy {
   ngOnInit(): void {
     this.subscription = this.modalService.isModalOpen$.subscribe(value => {
       this.isOpen = value;
+    });
+
+    this.modalService.selectedColumn$.subscribe(columnId => {
+      this.selectedColumnId = columnId;
     });
   }
 
@@ -102,7 +107,7 @@ export class TaskModalComponent implements OnInit, OnDestroy {
         date: formValue.date ? new Date(formValue.date) : new Date()
       };
 
-      this.taskService.addTask(newTask, '01');
+      this.taskService.addTask(newTask, this.selectedColumnId);
       this.taskForm.reset({ priority: 'alta' });
       this.labels = [];
       this.assigned = [];

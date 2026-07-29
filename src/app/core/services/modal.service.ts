@@ -7,11 +7,15 @@ import { BehaviorSubject } from 'rxjs';
 export class ModalService {
   private isModalOpenSubject = new BehaviorSubject<boolean>(false);
 
+  private selectedColumnSubject = new BehaviorSubject<string>('01');
+  selectedColumn$ = this.selectedColumnSubject.asObservable();
+
   isModalOpen$ = this.isModalOpenSubject.asObservable();
 
   constructor() {}
 
-  openModal(): void{
+  openModal(columnId: string = '01'): void{
+    this.selectedColumnSubject.next(columnId);
     this.isModalOpenSubject.next(true);
   }
 

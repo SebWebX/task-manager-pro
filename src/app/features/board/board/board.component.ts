@@ -2,6 +2,7 @@ import { Component, OnInit, ViewEncapsulation } from '@angular/core';
 import { Column } from '../models/task.model';
 import { TaskService } from '../../../core/services/task.service';
 import { BoardColumnComponent } from '../board-column/board-column.component';
+import { ModalService } from '../../../core/services/modal.service';
 
 
 @Component({
@@ -15,6 +16,7 @@ export class BoardComponent implements OnInit {
   columns: Column[] = [];
 
   constructor(private taskService: TaskService) {}
+
 
   ngOnInit(): void {
     this.columns = this.taskService.getColumns();

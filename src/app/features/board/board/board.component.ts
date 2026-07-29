@@ -16,7 +16,7 @@ export class BoardComponent implements OnInit {
 
   constructor(private taskService: TaskService) {}
 
-  ngOnInit(): void{
+  ngOnInit(): void {
     this.columns = this.taskService.getColumns();
   }
 }

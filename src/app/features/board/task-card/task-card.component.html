@@ -4,6 +4,14 @@
         <span class="task-card__priority-label" [style.color]="task.priority === 'alta' ? '#e04f4f' : task.priority === 'media' ? '#e8a030' : '#5a8a7a'">
             {{ task.priority | titlecase }}
         </span>
+        <div class="task-card__move-buttons">
+            <button class="task-card__move-btn" (click)="onMoveLeft()" aria-label="Mover a columna anterior">
+                <i class="ti ti-arrow-left" aria-hidden="true"></i>
+            </button>
+            <button class="task-card__move-btn" (click)="onMoveRight()" aria-label="Mover a columna siguiente">
+                <i class="ti ti-arrow-right" aria-hidden="true"></i>
+            </button>
+        </div>
     </div>
     <span class="task-card__title">{{task.title}}</span>
     @if(task.description){

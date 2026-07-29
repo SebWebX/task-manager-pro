@@ -95,19 +95,23 @@
         gap: .3rem;
         font-size: .6rem;
         color: var(--text-muted);
+
+        i{
+            font-size: .7rem;
+        }
     }
 
     &__avatar{
         @include m.flex-center;
         justify-content: center;
-        width: 1rem;
-        height: 1rem;
+        width: 1.6rem;
+        height: 1.6rem;
         border-radius: 50%;
         font-size: .6rem;
         font-weight: 500;
         color: white;
         background: var(--accent);
-        margin-left: -.5rem;
+        margin-left: -.4rem;
         border: 1.5px solid var(--bg-card);
 
         &:first-child{
@@ -120,6 +124,26 @@
 
         &:nth-child(3){
             background: #6b7af7;
+        }
+    }
+
+    &__move-buttons {
+        @include m.flex-center;
+        gap: .2rem;
+        margin-left: auto;
+    }
+
+    &__move-btn {
+        background: none;
+        border: none;
+        color: var(--text-muted);
+        cursor: pointer;
+        font-size: .7rem;
+        padding: .1rem;
+        @include m.flex-center;
+
+        &:hover {
+            color: var(--accent);
         }
     }
 }

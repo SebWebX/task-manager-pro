@@ -1,4 +1,4 @@
-import { Component, Input, ViewEncapsulation } from '@angular/core';
+import { Component, Input, Output, EventEmitter, ViewEncapsulation } from '@angular/core';
 import { Task } from '../models/task.model';
 import { TitleCasePipe, DatePipe } from '@angular/common';
 
@@ -11,6 +11,8 @@ import { TitleCasePipe, DatePipe } from '@angular/common';
 })
 export class TaskCardComponent {
   @Input() task!: Task;
+  @Output() moveLeft = new EventEmitter<string>();
+  @Output() moveRight = new EventEmitter<string>();
 
   getLabelColor(label: string): string {
     const colors: { [key: string]: string } = {
@@ -32,5 +34,13 @@ export class TaskCardComponent {
       'Branding': '#e04f7a',
     };
     return colors[label] || '#1fad83';
+  }
+
+  onMoveLeft(): void {
+    this.moveLeft.emit(this.task.id);
+  }
+
+  onMoveRight(): void {
+    this.moveRight.emit(this.task.id);
   }
 }

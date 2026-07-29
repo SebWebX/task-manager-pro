@@ -76,14 +76,18 @@ export class TaskService {
     }
   }
 
-  moveTask(taskId: string, columnId: string, newStatus: TaskStatus): void{
-    const column = this.columns.find(col => col.id === columnId);
+  moveTask(taskId: string, fromColumnId: string, toColumnId: string): void {
+    const fromColumn = this.columns.find(col => col.id === fromColumnId);
+    const toColumn = this.columns.find(col => col.id === toColumnId);
 
-    if(column){
-      const task = column.tasks.find(t => t.id === taskId);
+    if(fromColumn && toColumn){
+      const taskIndex = fromColumn.tasks.findIndex(t => t.id === taskId);
 
-      if(task){
-        task.status = newStatus;
+      if(taskIndex !== -1){
+        const task = fromColumn.tasks[taskIndex];
+        task.status = toColumn.status;
+        fromColumn.tasks.splice(taskIndex, 1);
+        toColumn.tasks.push(task);
       }
     }
   }

@@ -35,6 +35,73 @@
           <input formControlName="date" id="task-date" type="date">
         </div>
 
+        <div class="task-modal__field">
+          <label>Etiquetas</label>
+          <div class="task-modal__tags">
+            @for (label of labels; track label) {
+              <span class="task-modal__tag">
+                {{ label }}
+                <button type="button" (click)="removeLabel($index)">
+                  <i class="ti ti-x" aria-hidden="true"></i>
+                </button>
+              </span>
+            }
+            <input
+              type="text"
+              placeholder="Escribe y presiona Enter"
+              [(ngModel)]="newLabel"
+              [ngModelOptions]="{standalone: true}"
+              (keydown)="addLabel($event)">
+          </div>
+        </div>
+
+        <div class="task-modal__field">
+          <label>Asignados</label>
+          <div class="task-modal__tags">
+            @for (person of assigned; track person) {
+              <span class="task-modal__tag">
+                {{ person }}
+                <button type="button" (click)="removeAssigned($index)">
+                  <i class="ti ti-x" aria-hidden="true"></i>
+                </button>
+              </span>
+            }
+            <input
+              type="text"
+              placeholder="Iniciales y presiona Enter"
+              [(ngModel)]="newAssigned"
+              [ngModelOptions]="{standalone: true}"
+              (keydown)="addAssigned($event)">
+          </div>
+        </div>
+
+        <div class="task-modal__field">
+          <label>Subtareas</label>
+          <div class="task-modal__subtasks">
+            @for (subtask of subtasks; track subtask.text) {
+              <div class="task-modal__subtask-item" [class.task-modal__subtask-item--completed]="subtask.completed">
+                <button type="button" class="task-modal__subtask-check" (click)="toggleSubtask($index)">
+                  @if (subtask.completed) {
+                    <i class="ti ti-circle-check" aria-hidden="true"></i>
+                  } @else {
+                    <i class="ti ti-circle" aria-hidden="true"></i>
+                  }
+                </button>
+                <span>{{ subtask.text }}</span>
+                <button type="button" class="task-modal__subtask-remove" (click)="removeSubtask($index)">
+                  <i class="ti ti-x" aria-hidden="true"></i>
+                </button>
+              </div>
+            }
+            <input
+              type="text"
+              placeholder="Escribe una subtarea y presiona Enter"
+              [(ngModel)]="newSubtask"
+              [ngModelOptions]="{standalone: true}"
+              (keydown)="addSubtask($event)">
+          </div>
+        </div>
+
         <div class="task-modal__footer">
           <button class="task-modal__cancel" type="button" (click)="closeModal()">Cancelar</button>
           <button class="task-modal__submit" type="submit">Crear tarea</button>

@@ -54,7 +54,21 @@ export class TaskService {
   }
 ];
  
- constructor() { }
+ constructor() {
+  const saved = localStorage.getItem('task-manager-columns');
+  if(saved){
+    this.columns = JSON.parse(saved);
+    this.columns.forEach(column =>{
+      column.tasks.forEach(task =>{
+        task.date = new Date(task.date);
+      });
+    });
+   }
+  }
+
+  private saveToLocalStorage(): void{
+    localStorage.setItem('task-manager-columns', JSON.stringify(this.columns));
+  }
   
  getColumns(): Column[]{
   return this.columns;
@@ -66,6 +80,8 @@ export class TaskService {
     if (column){
      column.tasks.push(task);
     }
+
+    this.saveToLocalStorage();
   }
 
   deleteTask(taskId: string, columnId: string): void{
@@ -74,6 +90,8 @@ export class TaskService {
     if(column){
       column.tasks = column.tasks.filter(task => task.id !== taskId);
     }
+
+    this.saveToLocalStorage();
   }
 
   moveTask(taskId: string, fromColumnId: string, toColumnId: string): void {
@@ -90,6 +108,8 @@ export class TaskService {
         toColumn.tasks.push(task);
       }
     }
+
+    this.saveToLocalStorage();
   }
 
   updateTask(updatedTask: Task, columnId: string): void{
@@ -102,6 +122,8 @@ export class TaskService {
         column.tasks[taskIndex] = updatedTask;
       }
     }
+
+    this.saveToLocalStorage();
   }
 }
 

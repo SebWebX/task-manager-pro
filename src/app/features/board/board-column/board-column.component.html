@@ -13,7 +13,8 @@
                     [task]="task"
                     (moveLeft)="onMoveLeft($event)"
                     (moveRight)="onMoveRight($event)"
-                    (toggleSubtask)="onToggleSubtask($event)"/>
+                    (toggleSubtask)="onToggleSubtask($event)"
+                    (deleteTask)="onDeleteTask($event)"/>
             } @empty {
                 <li class="board-column__empty">No hay tareas</li>
             }

@@ -146,4 +146,10 @@
             color: var(--accent);
         }
     }
+
+    &__move-btn--delete{
+        &:hover{
+            color: #e04f4f;
+        }
+    }
 }

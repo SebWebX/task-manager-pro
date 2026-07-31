@@ -45,4 +45,8 @@ export class BoardColumnComponent {
       this.taskService.updateTask(task, this.column.id);
     }
   }
+
+  onDeleteTask(taskId: string): void{
+    this.taskService.deleteTask(taskId, this.column.id);
+  }
 }

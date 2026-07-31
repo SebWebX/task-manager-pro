@@ -1,6 +1,5 @@
 @use '../../../../styles/mixins' as m;
 
-
 .board-controls{
     @include m.floating-panel; 
     @include m.flex-center;
@@ -35,23 +34,76 @@
     &__buttons{
         display: flex;
         gap: 1rem;
+        align-items: center;
     }
 
     &__button{
-        display: flex;
+        @include m.flex-center;
+        align-items: center;
+        gap: .4rem;
         background: none;
-        border:none;
+        border: none;
         font-size: .781rem;
         color: var(--text-secondary);
         cursor: pointer;
-        align-items: center;
-        gap: .3rem;
+
+        &:hover{
+            color: var(--accent);
+        }
+
+        &--active {
+            color: var(--accent);
+            background: rgba(31, 173, 131, 0.1);
+            border-radius: 6px;
+            padding: .2rem .5rem;
+        }
 
         &--primary{
             background: #1fad83;
             color: white;
-            padding: .3rem.7rem;
-            border-radius: 7px;
+            padding: .3rem .7rem;
+            border-radius: 6px;
+            font-weight: 500;
+
+            &:hover{
+                background: #0e7a5e;
+                color: white;
+            }
+        }
+    }
+
+    &__dropdown {
+        position: relative;
+    }
+
+    &__menu {
+        position: absolute;
+        top: calc(100% + .4rem);
+        left: 0;
+        background: var(--bg-surface);
+        border: 0.5px solid var(--border);
+        border-radius: 8px;
+        padding: .3rem;
+        z-index: 100;
+        min-width: 8rem;
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    }
+
+    &__menu-item {
+        display: block;
+        width: 100%;
+        padding: .4rem .7rem;
+        background: none;
+        border: none;
+        color: var(--text-secondary);
+        font-size: .75rem;
+        text-align: left;
+        cursor: pointer;
+        border-radius: 6px;
+
+        &:hover {
+            background: rgba(31, 173, 131, 0.1);
+            color: var(--accent);
         }
     }
 }

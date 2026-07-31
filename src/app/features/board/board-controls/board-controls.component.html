@@ -6,11 +6,44 @@
     </div>
     <div class="board-controls__spacer"></div>
     <div class="board-controls__buttons">
-        <button class="board-controls__button" aria-label="Filtrar tareas"><i class="ti ti-filter" aria-hidden="true"></i>
-            Filtrar</button>
-        <button class="board-controls__button" aria-label="Ordenar tareas"><i class="ti ti-arrows-sort" aria-hidden="true"></i>
-            Ordenar</button>
-        <button class="board-controls__button board-controls__button--primary" aria-label="Crear nueva tarea" (click)="openModal()"><i class="ti ti-plus" aria-hidden="true"></i>
-            Nueva tarea</button>
+
+        <!-- Filtrar -->
+        <div class="board-controls__dropdown">
+            <button class="board-controls__button" 
+                [class.board-controls__button--active]="hasActiveFilters"
+                aria-label="Filtrar tareas" 
+                (click)="toggleFilterMenu()">
+                <i class="ti ti-filter" aria-hidden="true"></i> Filtrar
+            </button>
+            @if (showFilterMenu) {
+                <div class="board-controls__menu">
+                    <button class="board-controls__menu-item" (click)="filterByPriority(null)">Todas</button>
+                    <button class="board-controls__menu-item" (click)="filterByPriority('alta')">Alta</button>
+                    <button class="board-controls__menu-item" (click)="filterByPriority('media')">Media</button>
+                    <button class="board-controls__menu-item" (click)="filterByPriority('baja')">Baja</button>
+                </div>
+            }
+        </div>
+
+        <!-- Ordenar -->
+        <div class="board-controls__dropdown">
+            <button class="board-controls__button"
+                [class.board-controls__button--active]="hasActiveSort"
+                aria-label="Ordenar tareas" 
+                (click)="toggleSortMenu()">
+                <i class="ti ti-arrows-sort" aria-hidden="true"></i> Ordenar
+            </button>
+            @if (showSortMenu) {
+                <div class="board-controls__menu">
+                    <button class="board-controls__menu-item" (click)="sortBy(null)">Sin ordenar</button>
+                    <button class="board-controls__menu-item" (click)="sortBy('date')">Por fecha</button>
+                    <button class="board-controls__menu-item" (click)="sortBy('priority')">Por prioridad</button>
+                </div>
+            }
+        </div>
+
+        <button class="board-controls__button board-controls__button--primary" aria-label="Crear nueva tarea" (click)="openModal()">
+            <i class="ti ti-plus" aria-hidden="true"></i> Nueva tarea
+        </button>
     </div>
 </div>

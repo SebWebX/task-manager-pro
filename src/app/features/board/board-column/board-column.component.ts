@@ -37,4 +37,12 @@ export class BoardColumnComponent {
       this.taskService.moveTask(taskId, this.column.id, targetColumn.id);
     }
   }
+
+  onToggleSubtask(event: {taskId: string, index: number}): void{
+    const task = this.column.tasks.find(t => t.id === event.taskId);
+    if(task && task.subtask){
+      task.subtask[event.index].completed = !task.subtask[event.index].completed;
+      this.taskService.updateTask(task, this.column.id);
+    }
+  }
 }

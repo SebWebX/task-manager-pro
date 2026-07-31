@@ -57,8 +57,8 @@ export class TaskService {
  constructor() { }
   
  getColumns(): Column[]{
-  return [...this.columns];
-  }
+  return this.columns;
+ }
 
 
   addTask(task: Task, columnId: string): void{

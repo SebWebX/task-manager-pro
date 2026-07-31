@@ -36,9 +36,9 @@
                 @for (subtask of task.subtask; track subtask.text){
                     <li class="task-card__subtask-item" [class.task-card__subtask-item--completed]="subtask.completed">
                         @if (subtask.completed) {
-                          <i class="ti ti-circle-check" aria-hidden="true"></i>
+                          <i class="ti ti-circle-check" aria-hidden="true" (click)="onToggleSubtask($index)" style="cursor:pointer"></i>
                         } @else {
-                          <i class="ti ti-circle" aria-hidden="true"></i>
+                          <i class="ti ti-circle" aria-hidden="true" (click)="onToggleSubtask($index)" style="cursor:pointer"></i>
                         }
                         {{ subtask.text }}
                     </li>

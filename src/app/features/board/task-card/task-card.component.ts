@@ -13,6 +13,7 @@ export class TaskCardComponent {
   @Input() task!: Task;
   @Output() moveLeft = new EventEmitter<string>();
   @Output() moveRight = new EventEmitter<string>();
+  @Output() toggleSubtask = new EventEmitter<{taskId: string, index: number}>();
 
   getLabelColor(label: string): string {
     const colors: { [key: string]: string } = {
@@ -42,5 +43,9 @@ export class TaskCardComponent {
 
   onMoveRight(): void {
     this.moveRight.emit(this.task.id);
+  }
+
+  onToggleSubtask(index: number): void {
+    this.toggleSubtask.emit({ taskId: this.task.id, index})
   }
 }

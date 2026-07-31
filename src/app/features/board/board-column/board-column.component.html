@@ -12,7 +12,8 @@
                 <app-task-card 
                     [task]="task"
                     (moveLeft)="onMoveLeft($event)"
-                    (moveRight)="onMoveRight($event)"/>
+                    (moveRight)="onMoveRight($event)"
+                    (toggleSubtask)="onToggleSubtask($event)"/>
             } @empty {
                 <li class="board-column__empty">No hay tareas</li>
             }

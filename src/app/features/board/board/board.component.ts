@@ -1,8 +1,9 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewEncapsulation } from '@angular/core';
 import { Column, Task } from '../models/task.model';
 import { TaskService } from '../../../core/services/task.service';
 import { BoardColumnComponent } from '../board-column/board-column.component';
 import { FilterService, FilterState } from '../../../core/services/filter.service';
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-board',
@@ -11,9 +12,10 @@ import { FilterService, FilterState } from '../../../core/services/filter.servic
   styleUrl: './board.component.scss',
   encapsulation: ViewEncapsulation.None
 })
-export class BoardComponent implements OnInit {
+export class BoardComponent implements OnInit, OnDestroy {
   columns: Column[] = [];
   filteredColumns: Column[] = [];
+  private subscriptions: Subscription[] = [];
 
   constructor(
     private taskService: TaskService,
@@ -21,12 +23,20 @@ export class BoardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    this.columns = this.taskService.getColumns();
-    this.filteredColumns = this.columns;
+    const columnsSub = this.taskService.columns$.subscribe(columns => {
+      this.columns = columns;
+      this.applyFilters(this.filterService.currentFilters);
+    });
 
-    this.filterService.filters$.subscribe(filters => {
+    const filtersSub = this.filterService.filters$.subscribe(filters => {
       this.applyFilters(filters);
     });
+
+    this.subscriptions.push(columnsSub, filtersSub);
+  }
+
+  ngOnDestroy(): void {
+    this.subscriptions.forEach(sub => sub.unsubscribe());
   }
 
   applyFilters(filters: FilterState): void {

@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 import { Column, TaskStatus, Task, Priority } from '../../features/board/models/task.model';
 
 @Injectable({
@@ -151,6 +152,9 @@ export class TaskService {
     }
   ];
 
+  private columnsSubject = new BehaviorSubject<Column[]>(this.columns);
+  columns$ = this.columnsSubject.asObservable();
+
   constructor() {
     const saved = localStorage.getItem('task-manager-columns');
     if (saved) {
@@ -160,11 +164,13 @@ export class TaskService {
           task.date = new Date(task.date);
         });
       });
+      this.columnsSubject.next(this.columns);
     }
   }
 
   private saveToLocalStorage(): void {
     localStorage.setItem('task-manager-columns', JSON.stringify(this.columns));
+    this.columnsSubject.next([...this.columns]);
   }
 
   getColumns(): Column[] {

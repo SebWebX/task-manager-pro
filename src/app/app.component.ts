@@ -1,10 +1,11 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { SidebarComponent } from './shared/components/sidebar/sidebar.component';
 import { TopbarComponent } from './shared/components/topbar/topbar.component';
 import { BoardControlsComponent } from './features/board/board-controls/board-controls.component';
 import { BoardComponent } from './features/board/board/board.component';
 import { TaskModalComponent } from './shared/components/task-modal/task-modal.component';
+import { ThemeService } from './core/services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -15,10 +16,9 @@ import { TaskModalComponent } from './shared/components/task-modal/task-modal.co
 export class AppComponent implements OnInit {
   title = 'task-manager-pro';
 
-  constructor(private renderer: Renderer2){}
+  constructor(private themeService: ThemeService){}
 
-  ngOnInit(): void{
-    this.renderer.addClass(document.body, 'dark');
-  }
+  ngOnInit(): void{}
+  
 }
 

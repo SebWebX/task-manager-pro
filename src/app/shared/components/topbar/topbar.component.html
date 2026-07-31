@@ -17,12 +17,12 @@
         <i class="ti ti-user-circle topbar__profile-icon" aria-hidden="true"></i>
     </div>
     <div class="topbar__theme">
-            <span class="sr-only">Cambiar de tema</span>
-            <button class="topbar__button topbar__button--active" aria-label="Activar tema claro">
-                <i class="ti ti-sun" aria-hidden="true"></i>
-            </button>
-            <button class="topbar__button" aria-label="Activar tema oscuro">
-                <i class="ti ti-moon" aria-hidden="true"></i>
-            </button>
-    </div>
+        <span class="sr-only">Cambiar de tema</span>
+        <button class="topbar__button" [class.topbar__button--active]="!isDark" aria-label="Activar tema claro" (click)="toggleTheme()">
+          <i class="ti ti-sun" aria-hidden="true"></i>
+        </button>
+        <button class="topbar__button" [class.topbar__button--active]="isDark" aria-label="Activar tema oscuro" (click)="toggleTheme()">
+          <i class="ti ti-moon" aria-hidden="true"></i>
+        </button>
+      </div>
 </header>

@@ -40,3 +40,27 @@ body.dark{
     --col-review: #{t.$col-review};
     --col-done: #{t.$col-done};
 }
+
+body.light {
+    --bg-base: #{t.$light-bg-base};
+    --bg-surface: #{t.$light-bg-surface};
+    --bg-card: #{t.$light-bg-card};
+  
+    --accent: #{t.$dark-accent};
+    --accent-dark: #{t.$dark-accent-dark};
+  
+    --text-primary: #{t.$light-text-primary};
+    --text-secondary: #{t.$light-text-secondary};
+    --text-muted: #{t.$light-text-muted};
+  
+    --border: #{t.$light-border};
+  
+    --priority-high: #{t.$priority-high};
+    --priority-medium: #{t.$priority-medium};
+    --priority-low: #{t.$priority-low};
+  
+    --col-todo: #{t.$col-todo};
+    --col-progress: #{t.$col-progress};
+    --col-review: #{t.$col-review};
+    --col-done: #{t.$col-done};
+  }

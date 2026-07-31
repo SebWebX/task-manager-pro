@@ -4,7 +4,7 @@ Tablero Kanban profesional construido con Angular 19. Permite gestionar tareas d
 
 ##  Demo
 
-[Ver demo en vivo](#) 
+[Ver demo en vivo]([#](https://task-manager-pro-tan-rho.vercel.app/)) 
 
 ##  Features
 
